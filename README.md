@@ -7,29 +7,58 @@ A basic Agent Framework agent hosted with the responses API.
 - Python 3.10+
 - An Azure AI Foundry project with a deployed model
 
-## Getting Started
+## Development Container
 
-1. Create a virtual environment and install dependencies:
+The repository includes a VS Code Dev Container that provides:
 
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+- Python 3.12 and all packages from `requirements.txt`
+- Azure CLI for local authentication
+- The latest LTS .NET runtime required by Microsoft Foundry Toolkit
+- The Python, Pylance, debugpy, Azure CLI, Foundry Toolkit, and YAML VS Code extensions
+- Automatic forwarding for the agent API on port `8088`
 
-2. Set the environment variables in the `.env` file with your project endpoint and model deployment name.
+To use it:
 
-3. Log in to Azure:
+1. Install Docker, Visual Studio Code, and the **Dev Containers** extension.
+2. Open this repository in Visual Studio Code.
+3. Run **Dev Containers: Reopen in Container** from the Command Palette.
+4. Set the required values in `.env`, then authenticate with Azure:
 
    ```bash
    az login
    ```
 
-4. Run the agent:
+5. Run the agent:
 
    ```bash
    python main.py
    ```
+
+The workspace `.env` file remains local and is not copied into the container image.
+
+## Getting Started
+
+If you are not using the Dev Container, create a virtual environment and install dependencies:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Then set the environment variables in the `.env` file with your project endpoint and model deployment name.
+
+Log in to Azure:
+
+```bash
+az login
+```
+
+Run the agent:
+
+```bash
+python main.py
+```
 
 ## Interacting with the Agent
 
